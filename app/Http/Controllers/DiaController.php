@@ -107,6 +107,6 @@ class DiaController extends Controller
 
         Dia::destroy($id);
         
-        return redirect(url("/dia"));
+        return redirect(url("/dia"))->with('status','Item deletado com sucesso');
     }
 }
