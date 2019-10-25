@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.min.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 </head>
 <body>
 
@@ -40,6 +42,7 @@
         @yield("content")
     </div>
 
+    <script src="{!! secure_asset('js/jquery-3.4.1.min.js') !!}"></script>
     <script src="{!! asset('js/jquery-3.4.1.min.js') !!}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
