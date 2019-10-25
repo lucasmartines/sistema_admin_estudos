@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dia;
+use Illuminate\Support\Facades\Validator;
 
 class DiaController extends Controller
 {
@@ -13,6 +14,8 @@ class DiaController extends Controller
      * ROTA: Mostrar Todos os dias
      */
     public function index(){
+
+
         $dias = Dia::orderBy('created_at','desc')->paginate(5);
         
         return view('dia.mostrar_todos',compact('dias'));
@@ -25,11 +28,19 @@ class DiaController extends Controller
         return view('dia.criar_dia');
     }
     public function criarPost(Request $request){
-         $dia = new Dia;
-         $dia->titulo = $request->input("titulo");
-         $dia->save();
 
-         return redirect( url('/dia'));
+
+        $validator = $request->validate(
+            ['titulo'=>'required|min:3' ]
+        );
+              
+
+        $dia = new Dia;
+        $dia->titulo = $request->input("titulo");
+        $dia->save();
+
+        return redirect( url('/dia'));
+    
     }
     /**
      * ROTA: Mostrar Um dia, ou mostrar os detalhes do dia
@@ -47,10 +58,7 @@ class DiaController extends Controller
      * get ou post: Criar ou atualizar o post dia
     */
     public function criar_atualizar_DiaPost($id,Request $request){
-
-        // if($request->all() == null){
-        //     return view('dia.inserir_atualizar');
-        // }
+ 
         $dia = Dia::whereId($id)->first();
         return view('dia.inserir_atualizar',compact('dia'));
 
@@ -61,12 +69,18 @@ class DiaController extends Controller
      */
     public function atualizarDia($id , Request $request){
 
+      
+        $validator = $request->validate(
+            ['titulo'=>'required|min:3' ]
+        );
+                
+        
         $dia = Dia::whereId($id)->first();
         $dia->titulo = $request->input('titulo');
         $dia->save();
 
         return back()->with('status',"criado com sucesso");
-        
+    
     }
         /**
      * Rota Post: inserir um dia

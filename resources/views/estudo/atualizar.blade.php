@@ -2,6 +2,17 @@
 @section('titulo',"Bem vindo")
 @section("content")
 
+@if( !empty( session('status') ) )
+<div class="alert alert-success my-3">
+    {{session('status')}}
+</div>
+@endif
+
+@foreach($errors->all() as $error)
+<div class="alert alert-danger my-3">
+    {{$error}}
+</div>
+
 <div class="mt-4">
     <a href="/dia/{{$estudo->dias_id}}" >Voltar</a>
 </div>

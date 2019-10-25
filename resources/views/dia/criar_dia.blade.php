@@ -2,6 +2,20 @@
 @section('titulo',"Dias de estudo")
 
 @section("content")
+
+@if( !empty( session('status') ) )
+<div class="alert alert-success my-3">
+    {{session('status')}}
+</div>
+@endif
+
+@foreach($errors->all() as $error)
+<div class="alert alert-danger my-3">
+    {{$error}}
+</div>
+@endforeach
+
+
 <form  method="post" class="mt-3" action="/dia/criar"> 
 <a href="/dia"
     class="  " >Voltar</a>

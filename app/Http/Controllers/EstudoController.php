@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Estudo;
+use Illuminate\Support\Facades\Validator;
 
 class EstudoController extends Controller
 {
@@ -12,14 +13,22 @@ class EstudoController extends Controller
      */
     public function salvar(Request $req){
 
-        $novoEstudo = new \App\Estudo();
-        $novoEstudo->dias_id = $req->input('dia_id');
-        $novoEstudo->titulo = $req->input('titulo');
-        $novoEstudo->conteudo = $req->input('conteudo');
+        $validator = $req->validate(
+            ['titulo'=>'required|min:3',
+            'conteudo' =>'required|min:3',
+            'dia_id'=>'required|min:3']
+        );
+        
+      
+            $novoEstudo = new \App\Estudo();
+            $novoEstudo->dias_id = $req->input('dia_id');
+            $novoEstudo->titulo = $req->input('titulo');
+            $novoEstudo->conteudo = $req->input('conteudo');
 
-        $novoEstudo->save();
+            $novoEstudo->save();
 
-        return back()->with("status","Novo Estudo criado com sucesso");
+            return back()->with("status","Novo Estudo criado com sucesso");
+        
     }
     
     public function deletar($id){
@@ -38,6 +47,14 @@ class EstudoController extends Controller
     }
     public function atualizarPost($id,Request $request){
 
+        $validator = $request->validate(
+            ['titulo'=>'required|min:3',
+            'conteudo' =>'required|min:3',
+             ]
+        );
+        
+        
+    
 
         $estudo = \App\Estudo::where('id',$id)->first();
 
@@ -48,5 +65,6 @@ class EstudoController extends Controller
         $estudo->save();
 
         return back()->with("status","atualizado com sucesso");
+    
     }
 }
