@@ -58,7 +58,7 @@
                     <textarea class="form-control" type="id"  name="conteudo" rows=8></textarea>
                 </div>
                 <div class="text-right">
-                    <input type="submit" value="Criar" class="btn btn-primary my-2 col-12 col-lg-2">
+                    <input type="submit" value="Criar" class="btn btn-outline-primary my-2 col-12 col-lg-2">
 
                     <!-- <input type="cancel" value="Cancelar" class="btn btn-secondary col-12 my-2 col-lg-1"> -->
 
@@ -79,10 +79,10 @@
                 <p>
                     {{$item_estudo->conteudo}}
                 </p>
-                <a href="/estudo/{{$item_estudo->id}}/deletar" class="text-danger">
+                <a href="/estudo/{{$item_estudo->id}}/deletar" class="btn btn-outline-danger">
                     Deletar
                 </a>
-                <a href="/estudo/{{$item_estudo->id}}/atualizar" class="text-info">
+                <a href="/estudo/{{$item_estudo->id}}/atualizar" class="btn btn-outline-primary">
                     Atualizar
                 </a>
             </li>

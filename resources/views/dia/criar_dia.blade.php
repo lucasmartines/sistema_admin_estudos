@@ -28,8 +28,8 @@
         <input class="form-control " type="text" name="titulo">
         <div class="text-right">
 
-            <a href="/dia" class="btn btn-secondary my-2">Cancelar</a>
-            <input type="submit" value="Criar" class="btn btn-primary my-2 px-4">
+            <a href="/dia" class="btn btn-outline-secondary my-2">Cancelar</a>
+            <input type="submit" value="Criar" class="btn btn-outline-primary my-2 px-4">
         </div>
     </div>
 </form>

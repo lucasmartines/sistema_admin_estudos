@@ -29,7 +29,7 @@
             <span>Titulo</span>
             <input class="form-control" type="text" name="titulo" value="{{ $dia->titulo}}">
             <div class="text-right">
-                <input type="submit" value="Atualizar" class="btn btn-primary my-2 px-4">
+                <input type="submit" value="Atualizar" class="btn btn-outline-primary my-2 px-4">
             </div>
 
         </div>
