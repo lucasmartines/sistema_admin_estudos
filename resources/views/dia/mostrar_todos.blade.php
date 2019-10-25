@@ -2,12 +2,12 @@
 @section('titulo',"Bem vindo")
 @section("content")
 <!-- controles -->
-<div class="mt-3  d-flex">
+<div class="mt-3  d-flex align-items-center">
     <h4 class="pt-2 mr-auto" >
         Dias de estudo
     </h4>
      <a href="/dia/criar" 
-        class="text-info ">
+        class="btn btn-outline-info ">
         Criar um Dia
     </a>
 </div> 

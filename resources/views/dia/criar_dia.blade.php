@@ -3,7 +3,8 @@
 
 @section("content")
 <form  method="post" class="mt-3" action="/dia/criar"> 
-<a href="/dia" >Voltar</a>
+<a href="/dia"
+    class="  " >Voltar</a>
 @csrf
 
 <input type="hidden" name="dia_id" >

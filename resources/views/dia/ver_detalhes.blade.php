@@ -8,7 +8,7 @@
         Voltar 
     </a>
     <a href="/dia/{{$dia->id}}/atualizar"
-        class="text-info">Modificar
+        class="btn btn-outline-info">Modificar
     </a>
 </div>
 
@@ -19,7 +19,7 @@
 <p>
     Data: {{$dia->created_at}}
 </p>
-
+<!-- criar um item de estudo -->
 <div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
@@ -34,7 +34,7 @@
     <div id="collapseOne" class="collapse  " aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
       <form  method="post" action="/estudo"> 
-      <!-- action="/dia/{{$dia->id}}/atualizar" -->
+      
             @csrf
             <input type="hidden" name="dia_id" value="{{$dia->id}}">
                 <div class="form-group">
@@ -46,10 +46,10 @@
                     <span>Conteudo estudado</span>
                     <textarea class="form-control" type="id"  name="conteudo" rows=8></textarea>
                 </div>
-                <div>
-                    <input type="submit" value="Criar" class="btn btn-primary my-2">
+                <div class="text-right">
+                    <input type="submit" value="Criar" class="btn btn-primary my-2 col-12 col-lg-2">
 
-                    <input type="cancel" value="Cancelar" class="btn btn-secondary my-2">
+                    <!-- <input type="cancel" value="Cancelar" class="btn btn-secondary col-12 my-2 col-lg-1"> -->
 
                 </div>
             </form>
