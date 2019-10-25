@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('titulo',"Bem vindo")
 @section("content")
+
+
+@if( !empty( session('status') ) )
+<div class="alert alert-success my-3">
+    {{session('status')}}
+</div>
+@endif
+
 <!-- controles -->
 <div class="mt-3  d-flex align-items-center">
     <h4 class="pt-2 mr-auto" >
