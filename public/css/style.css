@@ -8,3 +8,46 @@ a{
 .pagination{
     justify-content: center;
 }
+
+
+/*
+welcome image
+*/
+.imagemBemvindo .img{
+    background: url(../imagens/books.jpeg);
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content:"";
+  
+    
+}
+.imagemBemvindo h2{
+    position: absolute;
+    left:1.6rem;
+    bottom:0.8rem;
+    color:white;
+}
+.imagemBemvindo{
+    position: relative;
+    height: 256px;
+    overflow: hidden;
+    display:flex;
+    color:white;
+}
+.imagemBemvindo .gradient{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: linear-gradient( 0deg , rgba(26, 26, 26, 0.74) , rgba(0,0,0,0.1));
+}
+@media (max-width:640px){
+    .imagemBemvindo h2{
+        font-size: 1.3em;
+    }
+    .imagemBemvindo{
+        height: 128px;
+    }
+}
