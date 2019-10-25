@@ -43,6 +43,13 @@
         @yield("content")
     </div>
     
+    <footer class="bg-dark p-2">
+        <div class="container">
+            <p class="text-white mb-0">
+                Criado por Lucas Martines
+            </p>
+        </div>
+    </footer>
     <script src="{!! secure_asset('js/jquery-3.4.1.min.js') !!}"></script>
     <script src="{!! asset('js/jquery-3.4.1.min.js') !!}"></script>
     
