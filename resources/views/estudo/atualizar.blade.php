@@ -12,6 +12,7 @@
 <div class="alert alert-danger my-3">
     {{$error}}
 </div>
+@endforeach
 
 <div class="mt-4">
     <a href="/dia/{{$estudo->dias_id}}" >Voltar</a>
@@ -25,13 +26,21 @@
     <!-- titulo -->
     <div class="form-group col-12 col-md-6 col-xl-4 px-lg-0">
         <span>Titulo</span>
-        <input class="form-control" type="text" name="titulo" value="{{$estudo->titulo}}">
+        <input class="form-control" type="text" name="titulo" 
+            value="@if(empty(old('titulo'))) {{$estudo->titulo}}
+                    @else
+                    {{ old('titulo') }}
+                    @endif ">
     
     </div>
     <!-- detalhes ou conteúdo estudado -->
     <div class="form-group col-12 col-md-8 col-xl-6 px-lg-0">
         <span>Conteudo estudado</span>
-        <textarea class="form-control" type="id"  name="conteudo" rows=8>{{$estudo->conteudo}}</textarea>
+        <textarea class="form-control" type="id"  name="conteudo" rows=8
+        
+            >@if(empty( old('conteudo') )){{$estudo->conteudo}}
+            @else{{ old('conteudo') }}@endif   
+        </textarea>
     </div>
     <!-- controles? -->
     <div>

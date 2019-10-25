@@ -29,9 +29,15 @@ class DiaController extends Controller
     }
     public function criarPost(Request $request){
 
+        $mensagens = [
+            'required'=>'Por favor preencha o campo :attribute',
+            'min' => "Por favor coloque mais de 3 caracteres no campo :attribute"
+        ];
 
         $validator = $request->validate(
             ['titulo'=>'required|min:3' ]
+            ,
+            $mensagens
         );
               
 
@@ -68,11 +74,15 @@ class DiaController extends Controller
      * Rota Post: atualizar um dia passando o id
      */
     public function atualizarDia($id , Request $request){
-
+       
+        $mensagens = [
+            'required'=>'Por favor preencha o campo :attribute',
+            'min' => "Por favor coloque mais de 3 caracteres no campo :attribute"
+        ];
       
         $validator = $request->validate(
             ['titulo'=>'required|min:3' ]
-        );
+        ,$mensagens);
                 
         
         $dia = Dia::whereId($id)->first();

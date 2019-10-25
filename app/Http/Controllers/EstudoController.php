@@ -13,11 +13,15 @@ class EstudoController extends Controller
      */
     public function salvar(Request $req){
 
+        $mensagens = [
+            'required'=>'Por favor preencha o campo :attribute',
+            'min' => "Por favor coloque mais de 3 caracteres no campo :attribute"
+        ];
         $validator = $req->validate(
             ['titulo'=>'required|min:3',
             'conteudo' =>'required|min:3',
-            'dia_id'=>'required|min:3']
-        );
+           ]
+        ,$mensagens);
         
       
             $novoEstudo = new \App\Estudo();
@@ -46,12 +50,15 @@ class EstudoController extends Controller
         return view('estudo.atualizar',compact('estudo'));
     }
     public function atualizarPost($id,Request $request){
-
+        $mensagens = [
+            'required'=>'Por favor preencha o campo :attribute',
+            'min' => "Por favor coloque mais de 3 caracteres no campo :attribute"
+        ];
         $validator = $request->validate(
             ['titulo'=>'required|min:3',
             'conteudo' =>'required|min:3',
              ]
-        );
+        ,$mensagens);
         
         
     

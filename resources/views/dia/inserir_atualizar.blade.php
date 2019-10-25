@@ -12,6 +12,7 @@
 <div class="alert alert-danger my-3">
     {{$error}}
 </div>
+@endforeach
 
 <h4 class="mt-4">
     Modificar dia: 
