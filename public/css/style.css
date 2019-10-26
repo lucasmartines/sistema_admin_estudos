@@ -9,7 +9,15 @@ a{
     justify-content: center;
 }
 
-
+.min-height{
+    min-height: 500px;
+}
+.min-height-big{
+    min-height: 600px;
+}
+img{
+    width:100%;
+}
 /*
 welcome image
 */

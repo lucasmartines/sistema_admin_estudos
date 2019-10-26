@@ -1,92 +1,99 @@
 @extends('layouts.app')
 @section('titulo',"Bem vindo")
-@section("content")
 
-@if( !empty( session('status') ) )
-<div class="alert alert-success my-3">
-    {{session('status')}}
-</div>
-@endif
+<div class="min-height-big">
+    @section("content")
 
-@foreach($errors->all() as $error)
-    <div class="alert alert-danger my-3">
-        {{$error}}
+    @if( !empty( session('status') ) )
+    <div class="alert alert-success my-3">
+        {{session('status')}}
     </div>
-@endforeach
-<div class="mt-3 d-flex">
-    <a href="/dia"
-        class="mr-auto">
-        Voltar 
-    </a>
-    <a href="/dia/{{$dia->id}}/atualizar"
-        class="btn btn-outline-info">Modificar
-    </a>
-</div>
+    @endif
 
-<h1 >
-    {{$dia->titulo}}
-</h1>
-
-<p>
-    Data: {{$dia->created_at}}
-</p>
-<!-- criar um item de estudo -->
-<div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link  text-success p-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-             
-                Criar um Estudo 
-             
-        </button>
-      </h2>
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger my-3">
+            {{$error}}
+        </div>
+    @endforeach
+    <div class="mt-3 d-flex">
+        <a href="/dia"
+            class="mr-auto">
+            Voltar 
+        </a>
+        <a href="/dia/{{$dia->id}}/atualizar"
+            class="btn btn-outline-info">Modificar
+        </a>
     </div>
-    <div id="collapseOne" class="collapse  " aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-      <form  method="post" action="/estudo"> 
-      
-            @csrf
-            <input type="hidden" name="dia_id" value="{{$dia->id}}">
-                <div class="form-group">
-                    <span>Titulo</span>
-                    <input class="form-control" type="text" name="titulo">
-                
-                </div>
-                <div class="form-group">
-                    <span>Conteudo estudado</span>
-                    <textarea class="form-control" type="id"  name="conteudo" rows=8></textarea>
-                </div>
-                <div class="text-right">
-                    <input type="submit" value="Criar" class="btn btn-outline-primary my-2 col-12 col-lg-2">
 
-                    <!-- <input type="cancel" value="Cancelar" class="btn btn-secondary col-12 my-2 col-lg-1"> -->
+    <h1 >
+        {{$dia->titulo}}
+    </h1>
 
-                </div>
-            </form>
-      </div>
+    <p>
+        Data: {{$dia->created_at}}
+    </p>
+    <!-- criar um item de estudo -->
+    <div class="accordion " id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link  text-success p-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Criar um Estudo 
+                    </button>
+                </h2>
+            </div>
+        </div>  
+        <div id="collapseOne" class="collapse  " aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+            <form  method="post" action="/estudo"> 
+            
+                @csrf
+                <input type="hidden" name="dia_id" value="{{$dia->id}}">
+                    <div class="form-group">
+                        <span>Titulo</span>
+                        <input class="form-control" type="text" name="titulo">
+                    
+                    </div>
+                    <div class="form-group">
+                        <span>Conteudo estudado</span>
+                        <textarea class="form-control" type="id"  name="conteudo" rows=8></textarea>
+                    </div>
+                    <div class="text-right">
+                        <input type="submit" value="Criar" class="btn btn-outline-primary my-2 col-12 col-lg-2">
+
+                        <!-- <input type="cancel" value="Cancelar" class="btn btn-secondary col-12 my-2 col-lg-1"> -->
+
+                    </div>
+                </form>
+        </div>
+        </div>
     </div>
-</div>
-<div class="mt-3">
-    <h6>Estudos:</h6>
+    <!-- FIM criar um item de estudo -->
 
-    <ul>
-         @foreach($estudos as $item_estudo)
-            <li class="mt-3">
-                <h6>
-                    {{$item_estudo->titulo}}
-                </h6>
-                <p>
-                    {{$item_estudo->conteudo}}
-                </p>
-                <a href="/estudo/{{$item_estudo->id}}/deletar" class="btn btn-outline-danger">
-                    Deletar
-                </a>
-                <a href="/estudo/{{$item_estudo->id}}/atualizar" class="btn btn-outline-primary">
-                    Atualizar
-                </a>
-            </li>
-        @endforeach
-    </ul>
+
+
+
+    <div class="mt-3">
+        <h6>Estudos:</h6>
+
+        <ul>
+            @foreach($estudos as $item_estudo)
+                <li class="mt-3">
+                    <h6>
+                        {{$item_estudo->titulo}}
+                    </h6>
+                    <p style="width:480px">
+                        {{$item_estudo->conteudo}}
+                    </p>
+                    <a href="/estudo/{{$item_estudo->id}}/deletar" class="btn btn-outline-danger">
+                        Deletar
+                    </a>
+                    <a href="/estudo/{{$item_estudo->id}}/atualizar" class="btn btn-outline-primary">
+                        Atualizar
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
 </div>
 @endsection

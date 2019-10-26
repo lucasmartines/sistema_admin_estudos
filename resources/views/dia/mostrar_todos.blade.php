@@ -1,5 +1,7 @@
 @extends('layouts.app')
+
 @section('titulo',"Bem vindo")
+
 @section("content")
 
 
@@ -20,11 +22,12 @@
     </a>
 </div> 
 <!-- painel -->
-<div class="row">
+<div class="row min-height">
     <!-- left panel -->
     <ul class="mt-3 col-12 col-lg-7  order-2 order-md-1" >
     @foreach($dias as $dia)
         <li class="mt-1 mb-3" >
+            
             <h2> {{$dia->titulo}} </h2>
             <p> data:  {{$dia->created_at}}</p>
 
@@ -40,13 +43,14 @@
             </a>               
         </li>
     @endforeach
+    
     @if( empty($dias) )
         <p>Nenhum dia </p>
     @endif
     </ul>
     <div class="col-lg-5 col-12 order-1 order-md-2">
         <div class="d-flex align-items-center justify-content-center">
-            <img src="{{asset('imagens/crianca_estudando.webp')}}" alt="">
+            <img style="width:auto" src="{{asset('imagens/crianca_estudando.webp')}}" alt="">
         </div>
     </div>
 </div>
