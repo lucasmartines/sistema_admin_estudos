@@ -102,13 +102,13 @@
                           `);
                         
                     </script>
-                    <a href="/estudo/{{$item_estudo->id}}/deletar" class="btn btn-outline-danger">
+                    <a href="/estudo/{{$item_estudo->id}}/deletar" class="btn btn-outline-danger mt-3">
                         Deletar
                     </a>
-                    <a href="/estudo/{{$item_estudo->id}}/atualizar" class="btn btn-outline-primary">
+                    <a href="/estudo/{{$item_estudo->id}}/atualizar" class="btn btn-outline-primary mt-3">
                         Atualizar
                     </a>
-                    <a href="/estudo/{{$item_estudo->id}}/verUm" class="btn btn-outline-success">
+                    <a href="/estudo/{{$item_estudo->id}}/verUm" class="btn btn-outline-success mt-3">
                         Ver Item
                     </a>
                     
@@ -126,7 +126,9 @@
 <script>
 
     $(document).ready(function() {
-        $('#summernote').summernote();
+        $('#summernote').summernote({
+            height:200
+        });
     });
     
 </script>

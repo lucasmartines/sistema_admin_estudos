@@ -34,7 +34,7 @@
     
     </div>
     <!-- detalhes ou conteúdo estudado -->
-    <div class="form-group col-12 col-md-8 col-xl-6 px-lg-0">
+    <div class="form-group col-12 col-md-12 col-xl-10 px-lg-0">
         <span>Conteudo estudado</span>
         <textarea 
                 id="summernote"
@@ -63,7 +63,9 @@
 <script>
 
     $(document).ready(function() {
-        $('#summernote').summernote();
+        $('#summernote').summernote({
+            height:200
+        });
     });
 
 </script>
