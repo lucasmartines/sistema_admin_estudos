@@ -59,3 +59,7 @@ welcome image
         height: 128px;
     }
 }
+
+.note-popover{
+    display:none;
+}

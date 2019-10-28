@@ -52,11 +52,17 @@
                     <div class="form-group">
                         <span>Titulo</span>
                         <input class="form-control" type="text" name="titulo">
-                    
+
                     </div>
-                    <div class="form-group">
+                    <div class="w-100">
                         <span>Conteudo estudado</span>
-                        <textarea class="form-control" type="id"  name="conteudo" rows=8></textarea>
+                        <!-- summernote -->
+                        <textarea id="summernote" 
+                                  class="form-control"
+                                  type="id"
+                                  name="conteudo" 
+                                  rows=8>
+                        </textarea>
                     </div>
                     <div class="text-right">
                         <input type="submit" value="Criar" class="btn btn-outline-primary my-2 col-12 col-lg-2">
@@ -82,9 +88,20 @@
                     <h6>
                         {{$item_estudo->titulo}}
                     </h6>
-                    <p style="width:480px">
-                        {{$item_estudo->conteudo}}
-                    </p>
+                    <div id="item_{{$item_estudo->id}}" style="width:100%;max-width:480px">
+                        
+                        
+                    </div>
+                    <script>
+                        let item{{$item_estudo->id}} = $('#item_{{ $item_estudo->id }}');
+                        
+                        item{{$item_estudo->id}}.append( `
+                            @php
+                             echo $item_estudo->conteudo
+                            @endphp
+                          `);
+                        
+                    </script>
                     <a href="/estudo/{{$item_estudo->id}}/deletar" class="btn btn-outline-danger">
                         Deletar
                     </a>
@@ -96,4 +113,18 @@
         </ul>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+    
+</script>
+
 @endsection

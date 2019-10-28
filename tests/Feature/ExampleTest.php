@@ -12,10 +12,20 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testHome()
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
+    public function testDias(){
+        $response = $this->get('/dia');
+
+        $response->assertStatus(200);
+    }
+    public function testDia(){
+        $response = $this->get('/dia/17');
+        $response->assertStatus(200);
+    }
+    
 }

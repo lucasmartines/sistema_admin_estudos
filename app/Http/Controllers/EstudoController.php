@@ -49,7 +49,12 @@ class EstudoController extends Controller
         
         return view('estudo.atualizar',compact('estudo'));
     }
-    public function atualizarPost($id,Request $request){
+    public function atualizarPost($id,Request $request)
+    {
+
+        /**
+         * validação customisada
+         */
         $mensagens = [
             'required'=>'Por favor preencha o campo :attribute',
             'min' => "Por favor coloque mais de 3 caracteres no campo :attribute"

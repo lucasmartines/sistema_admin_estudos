@@ -36,7 +36,12 @@
     <!-- detalhes ou conteúdo estudado -->
     <div class="form-group col-12 col-md-8 col-xl-6 px-lg-0">
         <span>Conteudo estudado</span>
-        <textarea class="form-control" type="id"  name="conteudo" rows=8
+        <textarea 
+                id="summernote"
+                class="form-control" 
+                type="id" 
+                name="conteudo"
+                rows=16
         
             >@if(empty( old('conteudo') )){{$estudo->conteudo}}
             @else{{ old('conteudo') }}@endif   
@@ -48,4 +53,19 @@
         <input type="submit" value="Atualizar" class="btn btn-primary my-2">
     </div>
 </form>
+
+
+@endsection
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+
+</script>
+
 @endsection
