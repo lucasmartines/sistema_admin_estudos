@@ -34,6 +34,8 @@ Route::post("/dia/{id}/criar","DiaController@criarDia");
 
 Route::post("/estudo","EstudoController@salvar");
 
+
 Route::get("/estudo/{id}/deletar","EstudoController@deletar");
 Route::get("/estudo/{id}/atualizar","EstudoController@atualizar");
 Route::post("/estudo/{id}/atualizar","EstudoController@atualizarPost");
+Route::get('/estudo/{id}/verUm',"EstudoController@verUm");

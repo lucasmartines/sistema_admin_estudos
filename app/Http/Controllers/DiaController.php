@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Dia;
 use Illuminate\Support\Facades\Validator;
+ 
+
 
 class DiaController extends Controller
 {

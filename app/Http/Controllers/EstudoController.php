@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Validator;
 
 class EstudoController extends Controller
 {
+
+    public function verUm($id)
+    {
+
+        $item_estudo = Estudo::find($id);
+
+        return view('estudo.detalhes',compact('item_estudo'));
+    }
     /**
      * Recebe um post para salvar o estudo
      */

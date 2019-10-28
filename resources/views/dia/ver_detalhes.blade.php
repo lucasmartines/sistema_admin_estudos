@@ -97,7 +97,7 @@
                         
                         item{{$item_estudo->id}}.append( `
                             @php
-                             echo $item_estudo->conteudo
+                             echo Illuminate\Support\Str::limit( $item_estudo->conteudo ,150 )
                             @endphp
                           `);
                         
@@ -108,6 +108,10 @@
                     <a href="/estudo/{{$item_estudo->id}}/atualizar" class="btn btn-outline-primary">
                         Atualizar
                     </a>
+                    <a href="/estudo/{{$item_estudo->id}}/verUm" class="btn btn-outline-success">
+                        Ver Item
+                    </a>
+                    
                 </li>
             @endforeach
         </ul>
