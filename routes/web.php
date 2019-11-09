@@ -39,3 +39,11 @@ Route::get("/estudo/{id}/deletar","EstudoController@deletar");
 Route::get("/estudo/{id}/atualizar","EstudoController@atualizar");
 Route::post("/estudo/{id}/atualizar","EstudoController@atualizarPost");
 Route::get('/estudo/{id}/verUm',"EstudoController@verUm");
+
+
+
+Route::any("/sendEmail","EmailSender@enviar");
+
+Route::get("/testeResp",function(){
+    return response()->json(["message"=>"uh lalá"]);
+});

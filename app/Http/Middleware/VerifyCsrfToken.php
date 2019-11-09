@@ -19,6 +19,9 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        "localhost/*",
+        "lucasmartines.github.io/*",
+        "http://127.0.0.1:8000/*"
+
     ];
 }

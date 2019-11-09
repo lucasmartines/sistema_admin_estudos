@@ -13,7 +13,7 @@
 <div 
     class="min-height pt-3"
     id="mostrar_item"  
-    style="width:100%;max-width:480px">
+    style="width:100%;">
                         
                         
 </div>
